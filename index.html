@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GO JUICE - Estoque & Vendas</title>
+<link rel="stylesheet" href="/css/styles.css">
+<!-- carregar Chart.js só quando necessário (lazy) -->
+</head>
+<body>
+<div class="top-left-save">
+<button id="backupBtn" class="save-svg" title="Salvar backup (baixar dados JSON)" aria-label="Salvar backup">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20h14a1 1 0 0 0 1-1v-6h-2v5H6v-5H4v6a1 1 0 0 0 1 1zM11 5v6.586L8.707 9.293 7.293 10.707 12 15.414l4.707-4.707-1.414-1.414L13 11.586V5h-2z"/></svg>
+</button>
+</div>
+
+
+<div class="app" id="app">
+<aside class="sidebar" aria-label="Menu">
+<div class="logo-btn card"><img src="/cropped-logo-com-borda-branca5x5.png" alt="GoJuice" loading="lazy"></div>
+
+
+<button class="icon-btn active" title="Dashboard" id="btnDashboard" aria-pressed="true" aria-label="Dashboard">
+<span class="animated-icon" aria-hidden="true">
+<!-- SVG -->
+</span>
+</button>
+
+
+<button class="icon-btn" title="Vendas & Estatísticas" id="btnSalesPanel" aria-pressed="false" aria-label="Vendas e Estatísticas">
+<span class="animated-icon" aria-hidden="true">
+<!-- SVG -->
+</span>
+</button>
+
+
+<div style="flex:1"></div>
+</aside>
+
+
+<main>
+<div class="container-main" id="mainContent">
+<!-- topbar, dashboard, modals etc (structure idêntica) -->
+<!-- NOTE: conteúdo do dashboard idêntico ao original em estrutura, mas controlado por JS modular -->
+
+
+<!-- Modals gerenciados por JS (injetados dinamicamente) -->
+
+
+<footer class="company" aria-label="Informações da empresa">
+Empresa: Go Juice • CNPJ: 55.321.057/0001-84 • Endereço: Rua Nelson Taborda Lacerda, 111 W, Centro - Juara - MT • Telefone: (66) 99629-3653
+</footer>
+</div>
+</main>
+</div>
+
+
+<!-- import scripts (defer) -->
+<script>window.GOJUICE_PATH = { base: '/' };</script>
+<script defer src="/js/modal.js"></script>
+<script defer src="/js/chart.js"></script>
+<script defer src="/js/app.js"></script>
+
+
+<!-- Register service worker (opcional) -->
+<script>
+if('serviceWorker' in navigator){
+navigator.serviceWorker?.register('/sw.js').catch(()=>{/* não crítico */});
+}
+</script>
+</body>
+</html>
